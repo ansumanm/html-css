@@ -1,0 +1,13 @@
+// Highlight current URL
+    var highlightCurrentUrl = function () {
+        var queryString = "a[href='" + window.location.pathname + "']";
+        var anchor = document.querySelector(queryString);
+        if (anchor) {
+            console.log("Anchor: " + anchor);
+            anchor.classList.add("active-tab");
+        } else {
+            console.log(queryString + "not found");
+        }
+    }
+
+    highlightCurrentUrl();
