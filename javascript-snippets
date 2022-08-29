@@ -11,3 +11,30 @@
     }
 
     highlightCurrentUrl();
+
+
+// Arrow function examples
+// Example #1 Default syntax
+const add = (a, b) => {
+  const result = a + b;
+  return result;
+};
+console.log(add(4, 5));
+
+// Example 2: No parameters
+const greet = () => {
+  console.log('Example #2: No parameters.');
+};
+greet();
+
+// Example 3: Parameter without parenthesis
+const testFunc1 = (arg) => { console.log(arg); };
+testFunc1('Arrow function without parenthesis example ');
+
+// Example 4: Without curly braces.
+const testFuncAdd = (a, b) => a + b;
+console.log(`Testing arrow function without curly braces... ${testFuncAdd(3, 4)}`);
+
+// Example 5: Arrow function returning an object
+const loadPerson = (pName) => ({ name: pName });
+console.log(loadPerson('Neo'));
