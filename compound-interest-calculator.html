@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compound Interest Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Compound Interest Calculator</h1>
+        <form id="interestForm">
+            <input type="number" id="principal" placeholder="Principal Amount" required>
+            <input type="number" id="rate" placeholder="Annual Interest Rate (%)" required>
+            <input type="number" id="timesCompounded" placeholder="Times Compounded Per Year" required>
+            <input type="number" id="years" placeholder="Number of Years" required>
+            <button type="button" onclick="calculateInterest()">Calculate</button>
+        </form>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function calculateInterest() {
+            const principal = parseFloat(document.getElementById('principal').value);
+            const rate = parseFloat(document.getElementById('rate').value) / 100;
+            const timesCompounded = parseInt(document.getElementById('timesCompounded').value);
+            const years = parseInt(document.getElementById('years').value);
+
+            const amount = principal * Math.pow((1 + rate / timesCompounded), timesCompounded * years);
+            const interest = amount - principal;
+
+            document.getElementById('result').innerText = 
+                `Final Amount: $${amount.toFixed(2)}\nTotal Interest: $${interest.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>
